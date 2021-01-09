@@ -1,0 +1,19 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: arm64 x86_64
+description: titanium-intercom
+author: Hans Knoechel
+license: MIT
+copyright: Copyright (c) 2020 by Hans Knoechel
+
+# these should not be edited
+name: titanium-intercom
+moduleid: ti.intercom
+guid: a0354e09-4d47-4de7-8321-90d162393b55
+platform: iphone
+mac: false
+minsdk: 9.2.0
