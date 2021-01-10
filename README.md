@@ -1,6 +1,6 @@
 # Titanium Intercom SDK
 
-Support for the native iOS / Android Intercom SDK in Appcelerator Titanium.
+Use the native iOS / Android Intercom SDK's in Appcelerator Titanium.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ See the example in `example/app.js`
 
 ## Copyright
 
-(c) 2020 by Hans Knöchel
+(c) 2021 by Hans Knöchel
 
 ## License
 
