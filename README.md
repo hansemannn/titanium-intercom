@@ -14,7 +14,7 @@ See the example in `example/app.js`
 
 ## Notes
 
-Be sure to add `NSPhotoLibraryUsageDescription` to your `Tiapp.xml` file after adding this module.
+Be sure to add `NSPhotoLibraryUsageDescription` to your `tiapp.xml` file after adding this module.
 
 ## Copyright
 
