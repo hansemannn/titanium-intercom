@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		38wYyh0aLhyQEhcyJzWS/hbDMlc=
+		HduI/V/6d6Q41WaT3ipvV4z9daU=
 		</data>
 		<key>Headers/ICMCompany.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Headers/Intercom.h</key>
 		<data>
-		0Lkny0g4pdcTjqPgiY46G33ORNk=
+		GW3YamMpo1ZZlSNLHN0SAs2nyGQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		hXbPnwO/1eR9oqiujxYjFqlm3Qo=
+		7oV3vIT2QwUr8z5EafcczNJXGKg=
 		</data>
 		<key>Intercom.bundle/data/intercom_area_codes.json</key>
 		<data>
@@ -87,6 +87,18 @@
 		<key>Intercom.bundle/images/article_loading_state@3x.png</key>
 		<data>
 		P7FueqYZo9Cit5vsSIsm9JMAcwY=
+		</data>
+		<key>Intercom.bundle/images/ask_a_question.png</key>
+		<data>
+		IZTYxmQK6rFA23NNyYguHqyOTRc=
+		</data>
+		<key>Intercom.bundle/images/ask_a_question@2x.png</key>
+		<data>
+		RrLlCuN7V8Xd2TBadSU7WyXwznM=
+		</data>
+		<key>Intercom.bundle/images/ask_a_question@3x.png</key>
+		<data>
+		WzEayc/hBttF841R8DrpKxhkHpw=
 		</data>
 		<key>Intercom.bundle/images/back.png</key>
 		<data>
@@ -590,11 +602,11 @@
 		</data>
 		<key>IntercomTranslations.bundle/Info.plist</key>
 		<data>
-		VEG8/A6KQzngAiNyCDOCnJXkFyE=
+		b5Pjy3/nyhw3flbR+ru3EZl6oOY=
 		</data>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeDirectory</key>
 		<data>
-		C4ZTwALFB2bg95t9c2BGYP+6kV8=
+		8OKAfLTRCvxS1odhLf6IQrlXVkM=
 		</data>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -602,7 +614,7 @@
 		</data>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		RMnsHS35rGvL/bQvbKoS4w3TpL0=
+		BzsDSxuDuct5Dv633gemNSULG64=
 		</data>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeResources</key>
 		<data>
@@ -779,11 +791,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			38wYyh0aLhyQEhcyJzWS/hbDMlc=
+			HduI/V/6d6Q41WaT3ipvV4z9daU=
 			</data>
 			<key>hash2</key>
 			<data>
-			5JP6xk3BS+/4yj96/ilW9G7CXAW7Egwas7qTPwSlhcM=
+			7c1wSVEmRHBQxI4paeUfCcGxjbFC7XaQ+0wWR1DclaY=
 			</data>
 		</dict>
 		<key>Headers/ICMCompany.h</key>
@@ -812,11 +824,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0Lkny0g4pdcTjqPgiY46G33ORNk=
+			GW3YamMpo1ZZlSNLHN0SAs2nyGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			bruUt+oj0jMfmtNZ5pH9p2n8mQTFng+cBvEk1LbBcBA=
+			xC8FHHSGAAUJLXgywKIuNoytVdn5RcZvTSWLaDO5Shw=
 			</data>
 		</dict>
 		<key>Intercom.bundle/data/intercom_area_codes.json</key>
@@ -993,6 +1005,39 @@
 			<key>hash2</key>
 			<data>
 			2l2jEI0PqjqXb3Hcv87EruUeo2zzIXHj3s2kjn6cQJk=
+			</data>
+		</dict>
+		<key>Intercom.bundle/images/ask_a_question.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IZTYxmQK6rFA23NNyYguHqyOTRc=
+			</data>
+			<key>hash2</key>
+			<data>
+			47eiCTN2COdKmy/OOOicw0/VorAMZbUyOvqeaGF1Ns0=
+			</data>
+		</dict>
+		<key>Intercom.bundle/images/ask_a_question@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RrLlCuN7V8Xd2TBadSU7WyXwznM=
+			</data>
+			<key>hash2</key>
+			<data>
+			gEOcCoD731FoCSzEWeMxqzoWur4cPpTDjP2s4vZZfMA=
+			</data>
+		</dict>
+		<key>Intercom.bundle/images/ask_a_question@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			WzEayc/hBttF841R8DrpKxhkHpw=
+			</data>
+			<key>hash2</key>
+			<data>
+			+HVtprOCJkJjS7oNbXMq8njg8oJJgZH+bRLyFx1CaGU=
 			</data>
 		</dict>
 		<key>Intercom.bundle/images/back.png</key>
@@ -2374,22 +2419,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VEG8/A6KQzngAiNyCDOCnJXkFyE=
+			b5Pjy3/nyhw3flbR+ru3EZl6oOY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ba1O1mUMLK3aumOBqHwaxqKupAliUOiTz+cIA2gDbt0=
+			MCqfXOch0IAXI8HCTpWYo8hvi6pzTvsD9IJPFNfxU+w=
 			</data>
 		</dict>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeDirectory</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			C4ZTwALFB2bg95t9c2BGYP+6kV8=
+			8OKAfLTRCvxS1odhLf6IQrlXVkM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0Td3h20ddtjiPyipO8EKZz0VQwOk2GxphuHxztlnZCo=
+			AjSPfeu5kXRvJKB8/oGuSntX/Ri4bxeqk4MDJWyxjOM=
 			</data>
 		</dict>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeRequirements</key>
@@ -2407,11 +2452,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RMnsHS35rGvL/bQvbKoS4w3TpL0=
+			BzsDSxuDuct5Dv633gemNSULG64=
 			</data>
 			<key>hash2</key>
 			<data>
-			i15XQFO8KIY5c6MWO7X5GKxkqZxuxK5x3mWv+ZGJ25Y=
+			yhmCoQn2C9ikUi4VqbpzGRbQK+UvZsp9UaLRwh1T2M4=
 			</data>
 		</dict>
 		<key>IntercomTranslations.bundle/_CodeSignature/CodeResources</key>
