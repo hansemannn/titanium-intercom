@@ -98,9 +98,16 @@
   [Intercom logout];
 }
 
-- (void)presentMessenger:(id)unused
+- (void)presentMessenger:(id)message
 {
-  [Intercom presentMessenger];
+  ENSURE_SINGLE_ARG_OR_NIL(message, NSString);
+
+  [Intercom presentMessageComposer:[TiUtils stringValue:message]];
+}
+
+- (void)presentHelpCenter:(id)unused
+{
+  [Intercom presentHelpCenter];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
