@@ -1,6 +1,6 @@
 
 dependencies {
-    implementation('io.intercom.android:intercom-sdk-base:9.0.1') {
+    implementation('io.intercom.android:intercom-sdk-base:9.1.2') {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
 }
