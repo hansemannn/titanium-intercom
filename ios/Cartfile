@@ -1,3 +1,0 @@
-# Note: Currently using the binary (https://github.com/intercom/intercom-ios/archive/master.zip)
-# because Carthage does not support .xcframeworks so far (01/2021)
-github "intercom/intercom-ios" ~> 9.0.0
