@@ -1,6 +1,9 @@
+repositories {
+    mavenCentral()
+}
 
 dependencies {
-    implementation('io.intercom.android:intercom-sdk-base:9.1.2') {
+    implementation('io.intercom.android:intercom-sdk-base:10.0.1') {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
 }
