@@ -1,4 +1,4 @@
-var Intercom = require('ti.intercom');
+import Intercom from 'ti.intercom';
 
 const apiKey = Ti.Platform.osname === 'android' ? 
     'android_sdk-XXXXXX' :
@@ -14,12 +14,22 @@ Intercom.registerUser({
     email: 'USER_EMAIL'
 });
 
-var win = Ti.UI.createWindow({
+const win = Ti.UI.createWindow({
     backgroundColor: '#fff'
 });
 
+// More APIs
+// Intercom.presentMessenger('optional_message');
+// Intercom.presentHelpCenter();
+// Intercom.presentCarousel('carouselId');
+
 win.addEventListener('open', () => {
+    Intercom.updateUser({ name: 'Hans', locale: 'de' }); // Optional
     Intercom.visible = true;
+});
+
+win.addEventListener('close', () => {
+    Intercom.logout();
 });
 
 win.open();
