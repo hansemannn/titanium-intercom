@@ -79,6 +79,7 @@
 
   NSString *email = user[@"email"];
   NSString *name = user[@"name"];
+  NSString *locale = user[@"locale"];
 
   ICMUserAttributes *userAttributes = [ICMUserAttributes new];
 
@@ -88,6 +89,10 @@
 
   if (name != nil) {
     userAttributes.name = name;
+  }
+  
+  if (locale != nil) {
+    userAttributes.languageOverride = locale;
   }
 
   [Intercom updateUser:userAttributes];
@@ -108,6 +113,13 @@
 - (void)presentHelpCenter:(id)unused
 {
   [Intercom presentHelpCenter];
+}
+
+- (void)presentCarousel:(id)carouselId
+{
+  ENSURE_SINGLE_ARG_OR_NIL(carouselId, NSString);
+
+  [Intercom presentCarousel:carouselId];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken

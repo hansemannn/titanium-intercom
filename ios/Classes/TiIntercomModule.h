@@ -19,4 +19,6 @@
 
 - (void)presentMessenger:(id)unused;
 
+- (void)presentCarousel:(id)carouselId;
+
 @end
