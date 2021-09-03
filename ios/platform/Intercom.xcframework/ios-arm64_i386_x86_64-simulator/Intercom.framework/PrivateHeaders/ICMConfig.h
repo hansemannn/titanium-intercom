@@ -7,6 +7,8 @@ static NSString *const kICMMessengerLogoImageLoadedNotification = @"kICMMessenge
 
 @protocol ICMConfigProtocol
 @property (readonly) BOOL inboundMessages;
+@property (readonly) BOOL accessToTeammateEnabled;
+@property (readonly) BOOL helpCenterRequireSearch;
 @end
 
 @interface ICMConfig : ICMSafeNetworkModel <ICMConfigProtocol,NSCoding>
@@ -35,6 +37,7 @@ static NSString *const kICMMessengerLogoImageLoadedNotification = @"kICMMessenge
 @property (nonatomic, assign) BOOL shouldDisplayDarkHelpCenterColor;
 @property (nonatomic, assign) BOOL identityVerificationEnabled;
 @property (nonatomic, assign) BOOL accessToTeammateEnabled;
+@property (nonatomic, assign) BOOL helpCenterRequireSearch;
 
 @property (nonatomic, assign) NSTimeInterval userUpdateDupCacheMaxAge;
 @property (nonatomic, assign) NSTimeInterval newSessionThreshold;
@@ -50,6 +53,7 @@ static NSString *const kICMMessengerLogoImageLoadedNotification = @"kICMMessenge
 @property (nonatomic, copy) NSString *helpCenterBaseColorString;
 
 @property (nonatomic, strong) NSLocale *intercomLocale;
+@property (nonatomic, strong) NSLocale *helpCenterLocale;
 @property (nonatomic, strong) NSSet<NSString *> *features;
 
 + (instancetype)instanceFromDictionary:(NSDictionary *)aDictionary;
