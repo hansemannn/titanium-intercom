@@ -155,6 +155,10 @@
                     success:(ICMHTTPCarouselSuccess)success
                       error:(ICMHTTPClientError)failure;
 
++ (void)getCarouselWithInstanceId:(NSString*)carouselInstanceId
+                    success:(ICMHTTPCarouselSuccess)success
+                      error:(ICMHTTPClientError)failure;
+
 #pragma mark - Help Center
 
 + (void)getHelpCenterCollections:(ICMHTTPArraySuccess)success
@@ -169,5 +173,11 @@
                             success:(ICMHTTPArraySuccess)success
                               error:(ICMHTTPClientError)failure;
 
+
+#pragma mark - Composer suggestions
+
+
++ (void)openMessenger:(ICMHTTPBaseSuccess)success
+                           error:(ICMHTTPClientError)failure;
 @end
 

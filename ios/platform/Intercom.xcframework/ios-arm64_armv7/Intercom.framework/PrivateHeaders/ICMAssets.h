@@ -58,6 +58,8 @@
 + (UIImage *)homescreenFailedImage;
 + (UIImage *)searchIcon;
 
++ (UIImage *)replyTimeIcon;
+
 // Help Center
 + (UIImage *)helpCenterLoadingImage;
 + (UIImage *)helpCenterChevron;
@@ -95,4 +97,6 @@
 + (NSURL *)soundForIncomingAdminMessage;
 + (NSURL *)soundForIncomingOperatorMessage;
 
+
++ (UIImage *)playIcon;
 @end
