@@ -16,9 +16,12 @@ import org.appcelerator.titanium.TiApplication;
 import io.intercom.android.sdk.Intercom;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
+import io.intercom.android.sdk.push.IntercomPushClient;
 
 @Kroll.module(name="TitaniumIntercom", id="ti.intercom")
 public class TitaniumIntercomModule extends KrollModule {
+
+	private IntercomPushClient pushClient = new IntercomPushClient();
 
 	@Kroll.method
 	public void configure(KrollDict params) {
@@ -92,6 +95,15 @@ public class TitaniumIntercomModule extends KrollModule {
 	@Kroll.method
 	public void presentHelpCenter() {
 		Intercom.client().displayHelpCenter();
+	}
+
+	@Kroll.method
+	public void updatePushToken(String pushToken) {
+		if (pushToken == null) {
+			pushToken = ""; // Reset token to empty string if deleted
+		}
+
+		pushClient.sendTokenToIntercom(TiApplication.getInstance(), pushToken);
 	}
 }
 
