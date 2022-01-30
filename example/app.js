@@ -24,7 +24,7 @@ const win = Ti.UI.createWindow({
 // Intercom.presentCarousel('carouselId');
 
 win.addEventListener('open', () => {
-    Intercom.updateUser({ name: 'Hans', locale: 'de' }); // Optional
+    Intercom.updateUser({ name: 'John Doe', email: 'john@doe.com', locale: 'de', customAttributes: { /* ... */ } }); // Optional
     Intercom.visible = true;
 });
 

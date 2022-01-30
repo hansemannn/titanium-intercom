@@ -59,6 +59,7 @@ public class TitaniumIntercomModule extends KrollModule {
 		String email = user.getString("email");
 		String name = user.getString("name");
 		String locale = user.getString("locale");
+		KrollDict customAttributes = user.getKrollDict("customAttributes");
 
 		UserAttributes.Builder userAttributes = new UserAttributes.Builder();
 
@@ -72,6 +73,10 @@ public class TitaniumIntercomModule extends KrollModule {
 
 		if (locale != null) {
 			userAttributes = userAttributes.withLanguageOverride(locale);
+		}
+
+		if (customAttributes != null) {
+			userAttributes = userAttributes.withCustomAttributes(customAttributes);
 		}
 
 		Intercom.client().updateUser(userAttributes.build());

@@ -80,6 +80,7 @@
   NSString *email = user[@"email"];
   NSString *name = user[@"name"];
   NSString *locale = user[@"locale"];
+  NSDictionary *customAttributes = user[@"customAttributes"];
 
   ICMUserAttributes *userAttributes = [ICMUserAttributes new];
 
@@ -93,6 +94,10 @@
   
   if (locale != nil) {
     userAttributes.languageOverride = locale;
+  }
+
+  if (customAttributes != nil) {
+    userAttributes.customAttributes = customAttributes;
   }
 
   [Intercom updateUser:userAttributes];
