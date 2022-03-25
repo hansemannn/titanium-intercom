@@ -48,9 +48,23 @@
   [Intercom setApiKey:apiKey forAppId:appId];
 }
 
+- (void)setUserHash:(id)userHash
+{
+  ENSURE_TYPE(userHash, NSString);
+
+  if (userHash != nil) {
+    [Intercom setUserHash:userHash];
+  }
+}
+
 - (void)setVisible:(NSNumber *)visible
 {
   [Intercom setLauncherVisible:[TiUtils boolValue:visible def:NO]];
+}
+
+- (void)setBottomPadding:(NSNumber *)bottomPadding
+{
+  [Intercom setBottomPadding:[TiUtils intValue:bottomPadding]];
 }
 
 - (void)registerUser:(id)user
@@ -126,6 +140,8 @@
 
   [Intercom presentCarousel:carouselId];
 }
+
+// MARK: UIApplicationDelegate
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {

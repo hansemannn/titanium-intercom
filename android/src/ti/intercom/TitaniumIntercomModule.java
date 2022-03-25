@@ -36,6 +36,18 @@ public class TitaniumIntercomModule extends KrollModule {
 		Intercom.client().setLauncherVisibility(visible ? Intercom.Visibility.VISIBLE : Intercom.Visibility.GONE);
 	}
 
+	@Kroll.setProperty
+	public void setBottomPadding(int bottomPadding) {
+		Intercom.client().setBottomPadding(bottomPadding);
+	}
+
+	@Kroll.setProperty
+	public void setUserHash(String userHash) {
+		if (userHash != null) {
+			Intercom.client().setUserHash(userHash);
+		}
+	}
+
 	@Kroll.method
 	public void registerUser(KrollDict user) {
 		if (user == null) {
