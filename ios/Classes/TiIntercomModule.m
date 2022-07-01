@@ -135,7 +135,12 @@
   [Intercom logout];
 }
 
-- (void)presentMessenger:(id)message
+- (void)presentMessenger:(id)unused
+{
+  [Intercom presentMessenger];
+}
+
+- (void)presentMessageComposer:(id)message
 {
   ENSURE_SINGLE_ARG_OR_NIL(message, NSString);
 

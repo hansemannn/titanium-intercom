@@ -25,6 +25,8 @@
 
 - (void)presentMessenger:(id)unused;
 
+- (void)presentMessageComposer:(id)message;
+
 - (void)presentHelpCenter:(id)unused;
 
 - (void)presentCarousel:(id)carouselId;
