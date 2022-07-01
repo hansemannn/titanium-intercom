@@ -8,12 +8,16 @@
  */
 package ti.intercom;
 
+import androidx.annotation.NonNull;
+
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
 
 import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomError;
+import io.intercom.android.sdk.IntercomStatusCallback;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
 import io.intercom.android.sdk.push.IntercomPushClient;
@@ -51,7 +55,17 @@ public class TitaniumIntercomModule extends KrollModule {
 	@Kroll.method
 	public void registerUser(KrollDict user) {
 		if (user == null) {
-			Intercom.client().registerUnidentifiedUser();
+			Intercom.client().loginUnidentifiedUser(new IntercomStatusCallback() {
+				@Override
+				public void onSuccess() {
+					// Add success callback?
+				}
+
+				@Override
+				public void onFailure(@NonNull IntercomError intercomError) {
+					// Add error callback?
+				}
+			});
 			return;
 		}
 
@@ -63,7 +77,17 @@ public class TitaniumIntercomModule extends KrollModule {
 			userRegistration = userRegistration.withEmail(email);
 		}
 
-		Intercom.client().registerIdentifiedUser(userRegistration);
+		Intercom.client().loginIdentifiedUser(userRegistration, new IntercomStatusCallback() {
+			@Override
+			public void onSuccess() {
+				// Add success callback?
+			}
+
+			@Override
+			public void onFailure(@NonNull IntercomError intercomError) {
+				// Add error callback?
+			}
+		});
 	}
 
 	@Kroll.method
@@ -91,7 +115,17 @@ public class TitaniumIntercomModule extends KrollModule {
 			userAttributes = userAttributes.withCustomAttributes(customAttributes);
 		}
 
-		Intercom.client().updateUser(userAttributes.build());
+		Intercom.client().updateUser(userAttributes.build(), new IntercomStatusCallback() {
+			@Override
+			public void onSuccess() {
+				// Add success callback?
+			}
+
+			@Override
+			public void onFailure(@NonNull IntercomError intercomError) {
+				// Add error callback?
+			}
+		});
 	}
 
 	@Kroll.method
