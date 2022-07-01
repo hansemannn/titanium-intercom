@@ -101,7 +101,7 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void presentMessenger(String message) {
-		Intercom.client().displayMessenger(););
+		Intercom.client().displayMessenger();
 	}
 
 	@Kroll.method
