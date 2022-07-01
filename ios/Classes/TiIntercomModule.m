@@ -2,7 +2,7 @@
  * titanium-intercom
  *
  * Created by Hans Knoechel
- * Copyright (c) 2020 Your Company. All rights reserved.
+ * Copyright (c) 2020-present Hans Knoechel. All rights reserved.
  */
 
 #import "TiIntercomModule.h"
@@ -72,19 +72,28 @@
   ENSURE_SINGLE_ARG_OR_NIL(user, NSDictionary);
 
   if (user == nil) {
-    [Intercom registerUnidentifiedUser];
+    [Intercom loginUnidentifiedUserWithSuccess:^{
+      // Add success callback?
+    } failure:^(NSError * _Nonnull error) {
+      // Add error callback?
+    }];
     return;
   }
 
   NSString *userId = user[@"identifier"];
   NSString *email = user[@"email"];
+  
+  ICMUserAttributes *userAttributes = [ICMUserAttributes new];
+  userAttributes.userId = userId;
+  userAttributes.email = email;
 
   if (email == nil) {
-    [Intercom registerUserWithUserId:userId];
-    return;
+    [Intercom loginUserWithUserAttributes:userAttributes success:^{
+      // Add success callback?
+    } failure:^(NSError * _Nonnull error) {
+      // Add error callback?
+    }];
   }
-
-  [Intercom registerUserWithUserId:userId email:email];
 }
 
 - (void)updateUser:(id)user
@@ -114,7 +123,11 @@
     userAttributes.customAttributes = customAttributes;
   }
 
-  [Intercom updateUser:userAttributes];
+  [Intercom updateUser:userAttributes success:^{
+    // Add success callback?
+  } failure:^(NSError * _Nonnull error) {
+    // Add error callback?
+  }];
 }
 
 - (void)logout:(id)unused
@@ -145,7 +158,9 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-  [Intercom setDeviceToken:deviceToken];
+  [Intercom setDeviceToken:deviceToken failure:^(NSError * _Nullable error) {
+    // Add error callback?
+  }];
 }
 
 @end

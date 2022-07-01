@@ -2,7 +2,7 @@
  * titanium-intercom
  *
  * Created by Hans Knoechel
- * Copyright (c) 2020 Your Company. All rights reserved.
+ * Copyright (c) 2020-present Hans Knoechel. All rights reserved.
  */
 
 #import "TiModule.h"
