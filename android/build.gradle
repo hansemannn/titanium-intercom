@@ -3,7 +3,7 @@ repositories {
 }
 
 dependencies {
-    implementation('io.intercom.android:intercom-sdk:12.4.3') {
+    implementation('io.intercom.android:intercom-sdk:12.5.1') {
         exclude group: 'com.google.code.gson', module: 'gson'
     }
 }
