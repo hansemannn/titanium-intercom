@@ -16,7 +16,9 @@ import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
 
 import io.intercom.android.sdk.Intercom;
+import io.intercom.android.sdk.IntercomContent;
 import io.intercom.android.sdk.IntercomError;
+import io.intercom.android.sdk.IntercomSpace;
 import io.intercom.android.sdk.IntercomStatusCallback;
 import io.intercom.android.sdk.UserAttributes;
 import io.intercom.android.sdk.identity.Registration;
@@ -135,7 +137,7 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void presentMessenger(String message) {
-		Intercom.client().displayMessenger();
+		Intercom.client().present();
 	}
 
 	@Kroll.method
@@ -145,12 +147,12 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void presentCarousel(String carouselId) {
-		Intercom.client().displayCarousel(carouselId);
+		Intercom.client().presentContent(new IntercomContent.Carousel(carouselId));
 	}
 
 	@Kroll.method
 	public void presentHelpCenter() {
-		Intercom.client().displayHelpCenter();
+		Intercom.client().present(IntercomSpace.HelpCenter);
 	}
 
 	@Kroll.method
