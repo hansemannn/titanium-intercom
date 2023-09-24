@@ -135,16 +135,21 @@
   [Intercom logout];
 }
 
-- (void)presentMessenger:(id)unused
+- (void)presentMessenger:(id)message
 {
-  [Intercom presentIntercom];
+  ENSURE_SINGLE_ARG_OR_NIL(message, NSString);
+
+  if (message != nil) {
+    [Intercom presentMessageComposer:[TiUtils stringValue:message]];
+  } else {
+    [Intercom presentIntercom];
+  }
 }
 
 - (void)presentMessageComposer:(id)message
 {
-  ENSURE_SINGLE_ARG_OR_NIL(message, NSString);
-
-  [Intercom presentMessageComposer:[TiUtils stringValue:message]];
+  DEPRECATED_REPLACED(@"Intercom.presentMessageComposer", @"4.0.2", @"Intercom.presentMessenger");
+  [self presentMessenger:message];
 }
 
 - (void)presentHelpCenter:(id)unused

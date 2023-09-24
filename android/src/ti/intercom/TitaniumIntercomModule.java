@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
+import org.appcelerator.kroll.common.Log;
 import org.appcelerator.titanium.TiApplication;
 
 import io.intercom.android.sdk.Intercom;
@@ -55,7 +56,7 @@ public class TitaniumIntercomModule extends KrollModule {
 	}
 
 	@Kroll.method
-	public void registerUser(KrollDict user) {
+	public void registerUser(@Kroll.argument(optional = true) KrollDict user) {
 		if (user == null) {
 			Intercom.client().loginUnidentifiedUser(new IntercomStatusCallback() {
 				@Override
@@ -94,12 +95,17 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
     public void updateUser(KrollDict user) {
+		String id = user.getString("id");
 		String email = user.getString("email");
 		String name = user.getString("name");
 		String locale = user.getString("locale");
 		KrollDict customAttributes = user.getKrollDict("customAttributes");
 
 		UserAttributes.Builder userAttributes = new UserAttributes.Builder();
+
+		if (id != null) {
+			userAttributes = userAttributes.withUserId(id);
+		}
 
 		if (email != null) {
 			userAttributes = userAttributes.withEmail(email);
@@ -136,13 +142,18 @@ public class TitaniumIntercomModule extends KrollModule {
 	}
 
 	@Kroll.method
-	public void presentMessenger(String message) {
-		Intercom.client().present();
+	public void presentMessenger(@Kroll.argument(optional = true) String message) {
+		if (message != null) {
+			Intercom.client().displayMessageComposer(message);
+		} else {
+			Intercom.client().present();
+		}
 	}
 
 	@Kroll.method
 	public void presentMessageComposer(String message) {
-		Intercom.client().displayMessageComposer(message != null ? message : "");
+		Log.w("TiIntercom", "presentMessageComposer has been deprecated - please use presentMessenger instead");
+		presentMessenger(message);
 	}
 
 	@Kroll.method
