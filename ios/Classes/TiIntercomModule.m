@@ -146,6 +146,11 @@
   }
 }
 
+- (void)presentSupportCenter:(id)message
+{
+  [Intercom presentIntercom];
+}
+
 - (void)presentMessageComposer:(id)message
 {
   DEPRECATED_REPLACED(@"Intercom.presentMessageComposer", @"4.0.2", @"Intercom.presentMessenger");

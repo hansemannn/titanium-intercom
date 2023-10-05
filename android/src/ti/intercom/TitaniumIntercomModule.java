@@ -151,8 +151,12 @@ public class TitaniumIntercomModule extends KrollModule {
 	}
 
 	@Kroll.method
+	public void presentSupportCenter() {
+		Intercom.client().present();
+	}
+
+	@Kroll.method
 	public void presentMessageComposer(String message) {
-		Log.w("TiIntercom", "presentMessageComposer has been deprecated - please use presentMessenger instead");
 		presentMessenger(message);
 	}
 
