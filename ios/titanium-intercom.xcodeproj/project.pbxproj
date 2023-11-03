@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -46,7 +46,7 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* TiIntercomModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiIntercomModuleAssets.h; path = Classes/TiIntercomModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* TiIntercomModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiIntercomModuleAssets.m; path = Classes/TiIntercomModuleAssets.m; sourceTree = "<group>"; };
-		3AE4CBB425A9DF09001B867F /* Intercom.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Intercom.xcframework; path = platform/Intercom.xcframework; sourceTree = "<group>"; };
+		3AE4CBB425A9DF09001B867F /* Intercom.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:RL5BZVWAZT:Intercom, Incorporated"; lastKnownFileType = wrapper.xcframework; name = Intercom.xcframework; path = platform/Intercom.xcframework; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiIntercom_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiIntercom_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		D2AAC07E0554694100DB518D /* libti.intercom.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libti.intercom.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
