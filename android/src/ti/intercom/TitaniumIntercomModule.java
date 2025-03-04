@@ -35,7 +35,7 @@ public class TitaniumIntercomModule extends KrollModule {
 		String apiKey = params.getString("apiKey");
 		String appId = params.getString("appId");
 
-		Intercom.initialize(TiApplication.getAppRootOrCurrentActivity().getApplication(), apiKey, appId);
+		Intercom.initialize(TiApplication.getInstance(), apiKey, appId);
 	}
 
 	@Kroll.setProperty
