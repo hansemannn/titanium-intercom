@@ -29,13 +29,39 @@ import io.intercom.android.sdk.push.IntercomPushClient;
 public class TitaniumIntercomModule extends KrollModule {
 
 	private IntercomPushClient pushClient = new IntercomPushClient();
+	private static boolean isInitialized = false;
+	private static String apiKey = null;
+	private static String appId = null;
+
+	private static void initialize() {
+		if (isInitialized) {
+			Log.d("Intercom", "Intercom is already initialized, ignoring re-initializing.");
+			return;
+		}
+
+		if (apiKey != null && appId != null) {
+			Intercom.initialize(TiApplication.getInstance(), apiKey, appId);
+			isInitialized = true;
+			Log.d("Intercom", "Intercom has been initialized");
+		} else {
+			Log.d("Intercom", "Intercom could not be initialized");
+		}
+	}
+
+	@Kroll.onAppCreate
+	public static void onAppCreate(TiApplication app) {
+		isInitialized = false;
+		apiKey = app.getAppProperties().getString("intercom-android-api-key", null);
+		appId = app.getAppProperties().getString("intercom-app-id", null);
+
+		initialize();
+	}
 
 	@Kroll.method
 	public void configure(KrollDict params) {
-		String apiKey = params.getString("apiKey");
-		String appId = params.getString("appId");
-
-		Intercom.initialize(TiApplication.getInstance(), apiKey, appId);
+		apiKey = params.getString("apiKey");
+		appId = params.getString("appId");
+		initialize();
 	}
 
 	@Kroll.setProperty
