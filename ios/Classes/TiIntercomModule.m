@@ -164,7 +164,7 @@
 
 - (void)presentCarousel:(id)carouselId
 {
-  ENSURE_SINGLE_ARG_OR_NIL(carouselId, NSString);
+  ENSURE_SINGLE_ARG(carouselId, NSString);
 
   IntercomContent *content = [IntercomContent new];
   content.contentId = carouselId;
@@ -177,7 +177,9 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
   [Intercom setDeviceToken:deviceToken failure:^(NSError * _Nullable error) {
-    // Add error callback?
+    if (error != nil) {
+      NSLog(@"[ERROR] Cannot register Intercom device token: %@", error.localizedDescription);
+    }
   }];
 }
 
