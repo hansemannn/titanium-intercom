@@ -8,6 +8,8 @@
  */
 package ti.intercom;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
 
 import org.appcelerator.kroll.KrollDict;
@@ -54,7 +56,13 @@ public class TitaniumIntercomModule extends KrollModule {
 		apiKey = app.getAppProperties().getString("intercom-android-api-key", null);
 		appId = app.getAppProperties().getString("intercom-app-id", null);
 
-		initialize();
+		// Defer the initialization on Android 12 and 13 to avoid ANRs as suggested by the Intercom Support team.
+		// It would further require that the Intercom.initialize() is called before any other Intercom API is used.
+		if (Build.VERSION.SDK_INT >= 31 && Build.VERSION.SDK_INT <= 33) {
+			Intercom.registerForLaterInitialisation(app);
+		} else {
+			initialize();
+		}
 	}
 
 	@Kroll.method
@@ -66,16 +74,19 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.setProperty
 	public void setVisible(boolean visible) {
+		initialize();
 		Intercom.client().setLauncherVisibility(visible ? Intercom.Visibility.VISIBLE : Intercom.Visibility.GONE);
 	}
 
 	@Kroll.setProperty
 	public void setBottomPadding(int bottomPadding) {
+		initialize();
 		Intercom.client().setBottomPadding(bottomPadding);
 	}
 
 	@Kroll.setProperty
 	public void setUserHash(String userHash) {
+		initialize();
 		if (userHash != null) {
 			Intercom.client().setUserHash(userHash);
 		}
@@ -83,6 +94,7 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void registerUser(@Kroll.argument(optional = true) KrollDict user) {
+		initialize();
 		if (user == null) {
 			Intercom.client().loginUnidentifiedUser(new IntercomStatusCallback() {
 				@Override
@@ -121,6 +133,7 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
     public void updateUser(KrollDict user) {
+		initialize();
 		String id = user.getString("id");
 		String email = user.getString("email");
 		String name = user.getString("name");
@@ -164,11 +177,13 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void logout() {
+		initialize();
 		Intercom.client().logout();
 	}
 
 	@Kroll.method
 	public void presentMessenger(@Kroll.argument(optional = true) String message) {
+		initialize();
 		if (message != null) {
 			Intercom.client().displayMessageComposer(message);
 		} else {
@@ -178,26 +193,31 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void presentSupportCenter() {
+		initialize();
 		Intercom.client().present();
 	}
 
 	@Kroll.method
 	public void presentMessageComposer(String message) {
+		initialize();
 		presentMessenger(message);
 	}
 
 	@Kroll.method
 	public void presentCarousel(String carouselId) {
+		initialize();
 		Intercom.client().presentContent(new IntercomContent.Carousel(carouselId));
 	}
 
 	@Kroll.method
 	public void presentHelpCenter() {
+		initialize();
 		Intercom.client().present(IntercomSpace.HelpCenter);
 	}
 
 	@Kroll.method
 	public void updatePushToken(String pushToken) {
+		initialize();
 		if (pushToken == null) {
 			pushToken = ""; // Reset token to empty string if deleted
 		}
