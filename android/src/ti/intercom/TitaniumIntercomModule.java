@@ -138,15 +138,15 @@ public class TitaniumIntercomModule extends KrollModule {
 		UserAttributes.Builder userAttributes = new UserAttributes.Builder();
 
 		if (id != null) {
-            userAttributes.withUserId(id);
+			userAttributes.withUserId(id);
         }
 
 		if (email != null) {
-            userAttributes.withEmail(email);
+			userAttributes.withEmail(email);
         }
 
 		if (name != null) {
-            userAttributes.withName(name);
+			userAttributes.withName(name);
         }
 
 		if (locale != null) {
