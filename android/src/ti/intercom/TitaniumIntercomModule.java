@@ -8,6 +8,8 @@
  */
 package ti.intercom;
 
+import android.os.Build;
+
 import androidx.annotation.NonNull;
 
 import org.appcelerator.kroll.KrollDict;
@@ -54,7 +56,13 @@ public class TitaniumIntercomModule extends KrollModule {
 		apiKey = app.getAppProperties().getString("intercom-android-api-key", null);
 		appId = app.getAppProperties().getString("intercom-app-id", null);
 
-		initialize();
+		// Defer the initialization on Android 12 and 13 to avoid ANRs as suggested by the Intercom Support team.
+		// It would further require that the Intercom.initialize() is called before any other Intercom API is used.
+		if (Build.VERSION.SDK_INT >= 31 && Build.VERSION.SDK_INT <= 33) {
+			Intercom.registerForLaterInitialisation(app);
+		} else {
+			initialize();
+		}
 	}
 
 	@Kroll.method
@@ -120,7 +128,7 @@ public class TitaniumIntercomModule extends KrollModule {
 	}
 
 	@Kroll.method
-    public void updateUser(KrollDict user) {
+	public void updateUser(KrollDict user) {
 		String id = user.getString("id");
 		String email = user.getString("email");
 		String name = user.getString("name");
@@ -130,23 +138,23 @@ public class TitaniumIntercomModule extends KrollModule {
 		UserAttributes.Builder userAttributes = new UserAttributes.Builder();
 
 		if (id != null) {
-			userAttributes = userAttributes.withUserId(id);
+			userAttributes.withUserId(id);
 		}
 
 		if (email != null) {
-			userAttributes = userAttributes.withEmail(email);
+			userAttributes.withEmail(email);
 		}
 
 		if (name != null) {
-			userAttributes = userAttributes.withName(name);
+			userAttributes.withName(name);
 		}
 
 		if (locale != null) {
-			userAttributes = userAttributes.withLanguageOverride(locale);
+			userAttributes.withLanguageOverride(locale);
 		}
 
 		if (customAttributes != null) {
-			userAttributes = userAttributes.withCustomAttributes(customAttributes);
+			userAttributes.withCustomAttributes(customAttributes);
 		}
 
 		Intercom.client().updateUser(userAttributes.build(), new IntercomStatusCallback() {
