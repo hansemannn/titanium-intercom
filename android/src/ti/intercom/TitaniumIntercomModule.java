@@ -128,7 +128,7 @@ public class TitaniumIntercomModule extends KrollModule {
 	}
 
 	@Kroll.method
-    public void updateUser(KrollDict user) {
+	public void updateUser(KrollDict user) {
 		String id = user.getString("id");
 		String email = user.getString("email");
 		String name = user.getString("name");
@@ -139,15 +139,15 @@ public class TitaniumIntercomModule extends KrollModule {
 
 		if (id != null) {
 			userAttributes.withUserId(id);
-        }
+		}
 
 		if (email != null) {
 			userAttributes.withEmail(email);
-        }
+		}
 
 		if (name != null) {
 			userAttributes.withName(name);
-        }
+		}
 
 		if (locale != null) {
 			userAttributes.withLanguageOverride(locale);
