@@ -74,19 +74,16 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.setProperty
 	public void setVisible(boolean visible) {
-		initialize();
 		Intercom.client().setLauncherVisibility(visible ? Intercom.Visibility.VISIBLE : Intercom.Visibility.GONE);
 	}
 
 	@Kroll.setProperty
 	public void setBottomPadding(int bottomPadding) {
-		initialize();
 		Intercom.client().setBottomPadding(bottomPadding);
 	}
 
 	@Kroll.setProperty
 	public void setUserHash(String userHash) {
-		initialize();
 		if (userHash != null) {
 			Intercom.client().setUserHash(userHash);
 		}
@@ -94,7 +91,6 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void registerUser(@Kroll.argument(optional = true) KrollDict user) {
-		initialize();
 		if (user == null) {
 			Intercom.client().loginUnidentifiedUser(new IntercomStatusCallback() {
 				@Override
@@ -133,7 +129,6 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
     public void updateUser(KrollDict user) {
-		initialize();
 		String id = user.getString("id");
 		String email = user.getString("email");
 		String name = user.getString("name");
@@ -143,23 +138,23 @@ public class TitaniumIntercomModule extends KrollModule {
 		UserAttributes.Builder userAttributes = new UserAttributes.Builder();
 
 		if (id != null) {
-			userAttributes = userAttributes.withUserId(id);
-		}
+            userAttributes.withUserId(id);
+        }
 
 		if (email != null) {
-			userAttributes = userAttributes.withEmail(email);
-		}
+            userAttributes.withEmail(email);
+        }
 
 		if (name != null) {
-			userAttributes = userAttributes.withName(name);
-		}
+            userAttributes.withName(name);
+        }
 
 		if (locale != null) {
-			userAttributes = userAttributes.withLanguageOverride(locale);
+			userAttributes.withLanguageOverride(locale);
 		}
 
 		if (customAttributes != null) {
-			userAttributes = userAttributes.withCustomAttributes(customAttributes);
+			userAttributes.withCustomAttributes(customAttributes);
 		}
 
 		Intercom.client().updateUser(userAttributes.build(), new IntercomStatusCallback() {
@@ -177,13 +172,11 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void logout() {
-		initialize();
 		Intercom.client().logout();
 	}
 
 	@Kroll.method
 	public void presentMessenger(@Kroll.argument(optional = true) String message) {
-		initialize();
 		if (message != null) {
 			Intercom.client().displayMessageComposer(message);
 		} else {
@@ -193,31 +186,26 @@ public class TitaniumIntercomModule extends KrollModule {
 
 	@Kroll.method
 	public void presentSupportCenter() {
-		initialize();
 		Intercom.client().present();
 	}
 
 	@Kroll.method
 	public void presentMessageComposer(String message) {
-		initialize();
 		presentMessenger(message);
 	}
 
 	@Kroll.method
 	public void presentCarousel(String carouselId) {
-		initialize();
 		Intercom.client().presentContent(new IntercomContent.Carousel(carouselId));
 	}
 
 	@Kroll.method
 	public void presentHelpCenter() {
-		initialize();
 		Intercom.client().present(IntercomSpace.HelpCenter);
 	}
 
 	@Kroll.method
 	public void updatePushToken(String pushToken) {
-		initialize();
 		if (pushToken == null) {
 			pushToken = ""; // Reset token to empty string if deleted
 		}
